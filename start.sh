@@ -44,6 +44,11 @@ EOF
 
 	tail -f /var/log/exim4/mainlog &
 
+    for VAR in `env | sed 's/=.*//'`
+    do
+	    sed -i "s|__${VAR}__|${!VAR}|" /etc/icinga2/features-enabled/ido-mysql.conf;
+    done
+    
     echo "************************"
     echo "*    running daemon    *"
     echo "************************"
