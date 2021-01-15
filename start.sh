@@ -26,6 +26,7 @@ else
         echo "*    prepare graphite    *"
         echo "**************************"
         icinga2 feature enable graphite
+	icinga2 feature enable perfdata 
     fi
 
     if [[ ! -z ${API_PASSWD} ]]
