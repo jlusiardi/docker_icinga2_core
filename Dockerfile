@@ -1,11 +1,11 @@
-FROM debian:8.7
+FROM debian:buster
 
 ENV DEBIAN_FRONTEND noninteractive
 
 ADD icinga.key /tmp/icinga.key
 
 RUN apt-key add /tmp/icinga.key; \
-    echo 'deb http://packages.icinga.com/debian icinga-jessie main' > /etc/apt/sources.list.d/icinga.list; \
+    echo 'deb http://packages.icinga.com/debian icinga-buster main' > /etc/apt/sources.list.d/icinga.list; \
     apt-get update -y; \
     apt install icinga2 monitoring-plugins-standard -y
 
